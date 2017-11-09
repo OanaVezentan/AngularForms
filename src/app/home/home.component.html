@@ -1,6 +1,36 @@
 <h3 *ngIf = "languages.length > 0">Loading...</h3>
 <div class="container" *ngIf = "languages.length > 0">
     <h3>Employee Form</h3>
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <datepicker name="startDate" [(ngModel)]="startDate" [showWeeks]="false" [minDate]="minDate"></datepicker>
+        </div>
+        <h3>{{ startDate }}</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+            <timepicker name="startTime" [(ngModel)]="startTime" [minuteStep]="15"></timepicker>
+        </div>
+        <h3>{{ startDate }}</h3>
+    </div>
+    <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group">
+        <button type="button" class="btn" [class.btn-primary]= "onOffSwitch === 'On'" [(ngModel)]="onOffSwitch" btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">{{ onOffSwitch }}</button>
+    </div>
+    <h3>{{ onOffSwitch }}</h3>
+    </div>
+    <div class="btn-group">
+        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Left">Left</label>
+        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Middle">Middle</label>
+        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Right">Right</label>
+    </div>
+    <h3>{{ radioModel }}</h3>
+    <div class="form-group">
+        <rating name="postRating" [max]="10" [stateOn]="'glyphicon-check'" [stateOff]="'glyphicon-unchecked'" (onHover)="hover($event)" (onLeave)="leave($event)" [(ngModel)]="postRating">
+
+        </rating>
+    </div>
+    <h3>{{ postRating }}</h3>
     <form #form="ngForm" (submit)="submitForm(form)" novalidate>
         <div class="form-group" [class.has-error]="firstName.invalid && firstName.touched">
             <label class="control-label">First Name</label>

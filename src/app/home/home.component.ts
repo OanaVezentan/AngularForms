@@ -12,6 +12,20 @@ export class HomeComponent {
   languages = [];
   model = new Employee('', '', true, '', 'default');
   hasPrimaryLanguageError = false;
+  minDate = new Date('October 12 2017');
+  startDate: Date;
+  startTime: Date;
+  onOffSwitch = "Off";
+  radioModel = "Hello";
+  postRating = 5;
+
+  hover(value) {
+    console.log("hover: " + value);
+  }
+
+  leave(value) {
+    console.log("leave: " + value);
+  }
 
   constructor(private formPoster: FormPoster) {
     this.formPoster.getLanguages()
